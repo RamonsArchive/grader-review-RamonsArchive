@@ -29,7 +29,14 @@ public class TestListExamples {
     List<String> expected = Arrays.asList("a", "a", "b", "c", "d");
     assertEquals(expected, merged);
   }
-
+  @Test(timeout = 500)
+   public void testMergeRightAgain(){
+    List<String> left = Arrays.asList("b","c","d");
+    List<String> right = Arrays.asList("a","b","a","c","c");
+    List<String> merged = ListExamples.merge(left, right);
+    List<String> expected = Arrays.asList("a","b","a","b","c","c","c","d");
+    assertEquals(expected,merged);
+  }
   @Test(timeout = 500)
   public void testFilter(){
     List<String> list = Arrays.asList("moon","sun","moon","pluto");
